@@ -1,10 +1,5 @@
- Network Cascade and COVID-19 Simulation
+## Dynamic Network Cascade and COVID-19 Simulation
 
-## Authors
-- Oanh Tran
-- William Trinh
-
- Dynamic Networks
 
 ---
 
@@ -15,7 +10,7 @@ This project implements two network-based diffusion models using Python, Network
 1. **Cascade Simulation** – A Linear Threshold Model that demonstrates how influence spreads through a network.
 2. **COVID-19 Simulation** – A modified SIRS epidemiological model with vaccination, shelter-in-place behavior, immunity waning, and mortality.
 
-The program reads a graph in GML format and simulates how activation or disease propagates across the network. :contentReference[oaicite:0]{index=0}
+The program reads a graph in GML format and simulates how activation or disease propagates across the network. 
 
 ---
 
@@ -39,16 +34,6 @@ The program reads a graph in GML format and simulates how activation or disease 
 ---
 ## Project Assumptions, Modifications, and SIRS Explanation
 
-### Project Assumptions
-
-This project makes several assumptions to simplify the simulation while still modeling realistic network-based spread.
-
-For the COVID model, the simulation assumes that disease spreads only through connected neighbors in the graph. A node can only infect another node if there is an edge between them. The model also assumes that all initiator nodes begin infected, while vaccinated and sheltered nodes are selected randomly from the remaining non-initiator nodes.
-
-The COVID model assumes that vaccinated nodes are not infected at the start, but they can still experience breakthrough infections. Vaccination lowers the infection probability rather than making a node completely immune. Recovered nodes are temporarily immune and cannot be reinfected until their immunity expires. Dead nodes remain dead for the rest of the simulation and do not infect or recover.
-
-Sheltered nodes are assumed to avoid infection while sheltered. Shelter lasts for 14 days, after which the node returns to the susceptible state. Susceptible nodes may enter shelter if more than half of their neighbors are infected.
-
 ---
 
 ### What Can Be Modified
@@ -70,6 +55,7 @@ The `--initiator` parameter controls which nodes begin infected in the COVID mod
 The graph file itself can also be modified. Adding or removing nodes and edges changes how connected the network is, which affects both cascade activation and disease transmission.
 
 ---
+
 
 ### How the SIRS Model Works
 
@@ -108,6 +94,16 @@ After immunity expires, the node returns to the susceptible state. This is what 
 Shelter-in-place adds another layer to the model. If a susceptible node has more than 50% infected neighbors, it may enter the sheltered state. Sheltered nodes remain sheltered for 14 days and then return to susceptible.
 
 Overall, the model simulates a simplified example of how disease can spread, slow down, recover, and potentially return over time in a connected network.
+
+### Project Assumptions
+
+This project makes several assumptions to simplify the simulation while still modeling realistic network-based spread.
+
+For the COVID model, the simulation assumes that disease spreads only through connected neighbors in the graph. A node can only infect another node if there is an edge between them. The model also assumes that all initiator nodes begin infected, while vaccinated and sheltered nodes are selected randomly from the remaining non-initiator nodes.
+
+The COVID model assumes that vaccinated nodes are not infected at the start, but they can still experience breakthrough infections. Vaccination lowers the infection probability rather than making a node completely immune. Recovered nodes are temporarily immune and cannot be reinfected until their immunity expires. Dead nodes remain dead for the rest of the simulation and do not infect or recover.
+
+Sheltered nodes are assumed to avoid infection while sheltered. Shelter lasts for 14 days, after which the node returns to the susceptible state. Susceptible nodes may enter shelter if more than half of their neighbors are infected.
 
 ## Requirements
 
