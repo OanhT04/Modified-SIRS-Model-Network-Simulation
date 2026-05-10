@@ -1,7 +1,7 @@
 ## Dynamic Network Cascade and COVID-19 Simulation
-
-
 ---
+Oanh Tran
+William Trinh
 
 ## Project Description
 
